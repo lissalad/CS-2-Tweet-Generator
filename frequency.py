@@ -2,7 +2,7 @@
 def histogram(source_text):
     text = open(source_text).read().split()
     # print(text)
-    # print(len(text))
+    print(len(text))
     unique_words = []
     punc = '''!()-[]{};:'"\,<>./?@#$%^&*_~…‘“”'''
     for word in text:
