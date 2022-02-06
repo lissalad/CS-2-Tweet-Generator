@@ -23,22 +23,29 @@ def unique_words(histogram): # number of unique words in histogram
 def frequency(word, histogram): # how many times a word appears in a histogram
   return histogram.get(word.lower())
 
-def randomWord(histogram): # random word, does consider distribution
+def randomWord(histogram): # random word, does distribution
   total_words = []
   for item in histogram.keys():
     for count in range(histogram.get(item)):
       total_words.append(item)
-  word =  total_words[random.randrange(0, len(total_words)-1)]
+  num = random.randrange(0, len(total_words)-1)
+  word = total_words[num]
+  # print(num)
   return word
 
 def randWord(histogram):
-  words = []
-  count = []
+  distance = 0
+  dart = random.randint(0,len(histogram.keys()))
+  for item in histogram:
+    count = item[1]
+    distance += count
+    if distance >= dart:
+      return item[0]
 
 
 # -------------- RUNS ------------------------ #
 if __name__ == '__main__':
-    test = histogram("./john_mulaney.txt")
+    test = histogram("./fish.txt")
     # print(unique_words(test))
     # print(frequency("john", test))
     print(randomWord(test))
